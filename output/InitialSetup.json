@@ -1,0 +1,84 @@
+[
+    {
+        "position":
+              {
+                "xCoordinate": 0,
+                "yCoordinate": 0
+              }
+        ,
+        "isMine": false
+    },
+        {
+        "position":
+            {
+                "xCoordinate": 0,
+                "yCoordinate": 1
+            }
+        ,
+        "isMine": false
+    },
+    {
+        "position":
+            {
+                "xCoordinate": 0,
+                "yCoordinate": 2
+            }
+        ,
+        "isMine": true
+    },
+    {
+        "position":
+            {
+                "xCoordinate": 1,
+                "yCoordinate": 0
+            }
+        ,
+        "isMine": false
+    },
+    {
+        "position":
+            {
+                "xCoordinate": 1,
+                "yCoordinate": 1
+            }
+        ,
+        "isMine": true
+    },
+    {
+        "position":
+            {
+                "xCoordinate": 1,
+                "yCoordinate": 2
+            }
+        ,
+        "isMine": false
+    },
+    {
+        "position":
+            {
+                "xCoordinate": 2,
+                "yCoordinate": 0
+            }
+        ,
+        "isMine": false
+    },
+    {
+        "position":
+            {
+                "xCoordinate": 2,
+                "yCoordinate": 1
+            }
+        ,
+        "isMine": false
+    },
+    {
+        "position":
+            {
+                "xCoordinate": 2,
+                "yCoordinate": 2
+            }
+        ,
+        "isMine": false
+    }
+]
+
