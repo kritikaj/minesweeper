@@ -26,9 +26,7 @@ public class Cell {
     this.isFlagged = true;
   }
 
-  public boolean hasBeenFlagged() {
-    return isFlagged;
-  }
+  public boolean hasBeenFlagged() { return isFlagged; }
 
   public boolean hasBeenOpened() {
     return isOpen;

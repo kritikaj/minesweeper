@@ -3,12 +3,10 @@ package minesweeper;
 public class GameBoard {
   private final Cell[] cells;
   private char[] cellValues;
-  private boolean isGameOver;
 
   public GameBoard(Cell[] cells) {
     this.cells = cells;
     this.cellValues = new char[cells.length];
-    this.isGameOver = false;
   }
 
   public void showBoard() {
@@ -24,18 +22,15 @@ public class GameBoard {
 
   private void determineCellValues() {
 
-    for(int i = 0 ; i< cells.length ; i++){
-
-      if(cells[i].hasBeenOpened()){
+    for (int i = 0; i < cells.length; i++) {
+      if (cells[i].hasBeenOpened()) {
         cellValues[i] = '0';
-        if(cells[i].isAMineCell()){
+        if (cells[i].isAMineCell()) {
           cellValues[i] = 'm';
         }
-      }
-      else if(cells[i].hasBeenFlagged()){
+      } else if (cells[i].hasBeenFlagged()) {
         cellValues[i] = 'f';
-      }
-      else{
+      } else {
         cellValues[i] = 'x';
       }
     }
@@ -45,11 +40,8 @@ public class GameBoard {
     for (Cell cell : cells) {
       if (cell.hasPosition(position)) {
         cell.openCell();
-        if(cell.hasBeenFlagged()){
+        if (cell.hasBeenFlagged()) {
           cell.unflagCell();
-        }
-        if (cell.isAMineCell()) {
-          this.isGameOver = true;
         }
         return;
       }
@@ -57,31 +49,18 @@ public class GameBoard {
   }
 
   public void flagCellWithPosition(Position position) {
-    for(Cell cell : cells){
-      if(cell.hasPosition(position)){
-        if(!cell.hasBeenOpened()){
+    for (Cell cell : cells) {
+      if (cell.hasPosition(position)) {
+        if (!cell.hasBeenOpened()) {
           cell.flagCell();
         }
       }
     }
   }
 
-  public boolean hasNoCellsToSelect() {
-    int countOfCellsCovered = 0;
-    for (Cell cell:cells) {
-      if(cell.hasBeenOpened() || cell.hasBeenFlagged()){
-        countOfCellsCovered ++;
-      }
-    }
-    if(countOfCellsCovered == cells.length){
-      return true;
-    }
-    return false;
-  }
-
   public boolean hasAMineCellOpened() {
-    for (Cell cell: cells) {
-      if(cell.hasBeenOpened() && cell.isAMineCell()){
+    for (Cell cell : cells) {
+      if (cell.hasBeenOpened() && cell.isAMineCell()) {
         return true;
       }
     }
@@ -92,15 +71,15 @@ public class GameBoard {
     int countOfOpenedCells = 0;
     int countOfMineCells = 0;
     for (Cell cell : cells) {
-      if(cell.hasBeenOpened() && !cell.isAMineCell()){
-        countOfOpenedCells ++;
+      if (cell.hasBeenOpened() && !cell.isAMineCell()) {
+        countOfOpenedCells++;
       }
-      if(cell.isAMineCell()){
-        countOfMineCells ++;
+      if (cell.isAMineCell()) {
+        countOfMineCells++;
       }
     }
 
-    if(countOfOpenedCells == (cells.length - countOfMineCells))
+    if (countOfOpenedCells == (cells.length - countOfMineCells))
       return true;
     return false;
   }

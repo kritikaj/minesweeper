@@ -18,10 +18,10 @@ public class MainDriver {
       Cell[] cells = gson.fromJson(reader, Cell[].class);
       Game game = new Game(cells);
 
-      game.openGame();
-      do{
+      game.startGame();
+      do {
         game.playGame();
-      }while (!game.isGameOver());
+      } while (!game.isGameOver());
 
       game.showResults();
 

@@ -20,12 +20,12 @@ public class Game {
   public void playGame() {
     Position position = player.selectCellForNextMove();
     Operation operation = player.selectOperationOnCell();
-    player.playNextMove(position,operation);
+    player.playNextMove(position, operation);
     gameBoard.showBoard();
     this.isGameOver = getGameStatus();
   }
 
-  public void openGame() {
+  public void startGame() {
     gameBoard.showBoard();
   }
 
@@ -34,7 +34,7 @@ public class Game {
   }
 
   public void showResults() {
-    if(this.isPlayerTheWinner){
+    if (this.isPlayerTheWinner) {
       outputWriter.writeOutput("Game Over! You Won !!");
       return;
     }
@@ -42,13 +42,13 @@ public class Game {
   }
 
   private boolean getGameStatus() {
-    if(!this.isGameOver) {
-      if(gameBoard.hasOpenedAllNonMineCells()){
+    if (!this.isGameOver) {
+      if (gameBoard.hasOpenedAllNonMineCells()) {
         this.isPlayerTheWinner = true;
         this.isGameOver = true;
         return isGameOver;
       }
-      if(gameBoard.hasAMineCellOpened()){
+      if (gameBoard.hasAMineCellOpened()) {
         this.isPlayerTheWinner = false;
         this.isGameOver = true;
         return isGameOver;

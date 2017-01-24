@@ -13,9 +13,9 @@ public class Player {
   }
 
   public void playNextMove(Position position, Operation operation) {
-    if(operation == Operation.OPEN){
+    if (operation == Operation.OPEN) {
       gameBoard.openCellWithPosition(position);
-    }else {
+    } else {
       gameBoard.flagCellWithPosition(position);
     }
   }
@@ -27,7 +27,7 @@ public class Player {
     int xCoordinates = inputReader.getInput();
     int yCoordinates = inputReader.getInput();
 
-    return new Position(xCoordinates,yCoordinates);
+    return new Position(xCoordinates, yCoordinates);
 
   }
 
@@ -36,7 +36,7 @@ public class Player {
     Operation operation;
     int operationChosen;
 
-    outputWriter.writeOutput("1.Flag cell"+"\n"+"2.Open Cell"+"\n"+"Enter choice : ");
+    outputWriter.writeOutput("1.Flag cell" + "\n" + "2.Open Cell" + "\n" + "Enter choice : ");
 
     operationChosen = inputReader.getInput();
 
@@ -46,7 +46,7 @@ public class Player {
   }
 
   private Operation determineSelectedOperation(int operationChosen) {
-    if(operationChosen == 1){
+    if (operationChosen == 1) {
       return Operation.FLAG;
     }
     return Operation.OPEN;
