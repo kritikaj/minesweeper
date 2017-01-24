@@ -43,12 +43,10 @@ public class Game {
 
   private boolean getGameStatus() {
     if(!this.isGameOver) {
-      if(gameBoard.hasNoCellsToSelect()){
-        if(gameBoard.allFlaggedCellsAreMineCells()){
-          this.isPlayerTheWinner = true;
-          this.isGameOver = true;
-          return isGameOver;
-        }
+      if(gameBoard.hasOpenedAllNonMineCells()){
+        this.isPlayerTheWinner = true;
+        this.isGameOver = true;
+        return isGameOver;
       }
       if(gameBoard.hasAMineCellOpened()){
         this.isPlayerTheWinner = false;

@@ -88,18 +88,19 @@ public class GameBoard {
     return false;
   }
 
-  public boolean allFlaggedCellsAreMineCells() {
-    int countOfFlaggedMinedCells = 0;
-    int countOfFlaggedCells = 0;
+  public boolean hasOpenedAllNonMineCells() {
+    int countOfOpenedCells = 0;
+    int countOfMineCells = 0;
     for (Cell cell : cells) {
-      if(cell.hasBeenFlagged()){
-        countOfFlaggedCells ++;
-        if(cell.isAMineCell()) {
-          countOfFlaggedMinedCells++;
-        }
+      if(cell.hasBeenOpened() && !cell.isAMineCell()){
+        countOfOpenedCells ++;
+      }
+      if(cell.isAMineCell()){
+        countOfMineCells ++;
       }
     }
-    if(countOfFlaggedCells == countOfFlaggedMinedCells)
+
+    if(countOfOpenedCells == (cells.length - countOfMineCells))
       return true;
     return false;
   }
