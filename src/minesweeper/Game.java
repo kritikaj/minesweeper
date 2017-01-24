@@ -34,23 +34,21 @@ public class Game {
   }
 
   public void showResults() {
-    if(hasPlayerWonTheGame()){
+    if(this.isPlayerTheWinner){
       outputWriter.writeOutput("Game Over! You Won !!");
       return;
     }
     outputWriter.writeOutput("GameOver! You Lost !!");
   }
 
-  private boolean hasPlayerWonTheGame() {
-    return isPlayerTheWinner;
-  }
-
   private boolean getGameStatus() {
     if(!this.isGameOver) {
       if(gameBoard.hasNoCellsToSelect()){
-        this.isPlayerTheWinner = true;
-        this.isGameOver = true;
-        return isGameOver;
+        if(gameBoard.allFlaggedCellsAreMineCells()){
+          this.isPlayerTheWinner = true;
+          this.isGameOver = true;
+          return isGameOver;
+        }
       }
       if(gameBoard.hasAMineCellOpened()){
         this.isPlayerTheWinner = false;

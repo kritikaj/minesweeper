@@ -12,7 +12,6 @@ public class Cell {
     this.isFlagged = false;
   }
 
-
   public boolean hasPosition(Position position) {
     return position.equals(this.position);
   }
@@ -34,6 +33,8 @@ public class Cell {
   public boolean hasBeenOpened() {
     return isOpen;
   }
+
+  public void unflagCell() { this.isFlagged = false; }
 
   @Override
   public String toString() {

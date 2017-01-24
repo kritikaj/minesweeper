@@ -45,6 +45,9 @@ public class GameBoard {
     for (Cell cell : cells) {
       if (cell.hasPosition(position)) {
         cell.openCell();
+        if(cell.hasBeenFlagged()){
+          cell.unflagCell();
+        }
         if (cell.isAMineCell()) {
           this.isGameOver = true;
         }
@@ -56,7 +59,9 @@ public class GameBoard {
   public void flagCellWithPosition(Position position) {
     for(Cell cell : cells){
       if(cell.hasPosition(position)){
-        cell.flagCell();
+        if(!cell.hasBeenOpened()){
+          cell.flagCell();
+        }
       }
     }
   }
@@ -80,6 +85,22 @@ public class GameBoard {
         return true;
       }
     }
+    return false;
+  }
+
+  public boolean allFlaggedCellsAreMineCells() {
+    int countOfFlaggedMinedCells = 0;
+    int countOfFlaggedCells = 0;
+    for (Cell cell : cells) {
+      if(cell.hasBeenFlagged()){
+        countOfFlaggedCells ++;
+        if(cell.isAMineCell()) {
+          countOfFlaggedMinedCells++;
+        }
+      }
+    }
+    if(countOfFlaggedCells == countOfFlaggedMinedCells)
+      return true;
     return false;
   }
 }
