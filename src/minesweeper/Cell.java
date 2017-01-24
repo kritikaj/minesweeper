@@ -21,20 +21,10 @@ public class Cell {
     this.isOpen = true;
   }
 
-  public boolean isAMineCell() {
-    return isMine;
-  }
+  public boolean isAMineCell() { return isMine; }
 
   public void flagCell() {
     this.isFlagged = true;
-  }
-
-  @Override
-  public String toString() {
-    return "Cell{" +
-        "position=" + position +
-        ", isMine=" + isMine +
-        '}';
   }
 
   public boolean hasBeenFlagged() {
@@ -43,5 +33,13 @@ public class Cell {
 
   public boolean hasBeenOpened() {
     return isOpen;
+  }
+
+  @Override
+  public String toString() {
+    return "Cell{" +
+        "position=" + position +
+        ", isMine=" + isMine +
+        '}';
   }
 }

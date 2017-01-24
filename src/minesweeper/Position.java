@@ -4,7 +4,7 @@ public class Position {
   private int xCoordinate;
   private int yCoordinate;
 
-  public Position(){}
+  public Position() {}
 
   public Position(int xCoordinate, int yCoordinate) {
     this();
@@ -13,7 +13,7 @@ public class Position {
   }
 
   public boolean equals(Position position) {
-    if(this.xCoordinate == position.xCoordinate && this.yCoordinate == position.yCoordinate){
+    if (this.xCoordinate == position.xCoordinate && this.yCoordinate == position.yCoordinate) {
       return true;
     }
     return false;

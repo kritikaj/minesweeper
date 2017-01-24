@@ -53,29 +53,6 @@ public class GameBoard {
     }
   }
 
-  public boolean hasGameBeenOver() {
-    if(this.isGameOver){
-      return true;
-    }
-    this.isGameOver = getGameStatus();
-    return this.isGameOver;
-  }
-
-  private boolean getGameStatus() {
-    if(!this.isGameOver) {
-      int countOfCellsCovered = 0;
-      for (Cell cell:cells) {
-        if(cell.hasBeenOpened() || cell.hasBeenFlagged()){
-          countOfCellsCovered ++;
-        }
-      }
-      if(countOfCellsCovered == cells.length){
-        return true;
-      }
-    }
-    return false;
-  }
-
   public void flagCellWithPosition(Position position) {
     for(Cell cell : cells){
       if(cell.hasPosition(position)){
@@ -84,4 +61,25 @@ public class GameBoard {
     }
   }
 
+  public boolean hasNoCellsToSelect() {
+    int countOfCellsCovered = 0;
+    for (Cell cell:cells) {
+      if(cell.hasBeenOpened() || cell.hasBeenFlagged()){
+        countOfCellsCovered ++;
+      }
+    }
+    if(countOfCellsCovered == cells.length){
+      return true;
+    }
+    return false;
+  }
+
+  public boolean hasAMineCellOpened() {
+    for (Cell cell: cells) {
+      if(cell.hasBeenOpened() && cell.isAMineCell()){
+        return true;
+      }
+    }
+    return false;
+  }
 }
